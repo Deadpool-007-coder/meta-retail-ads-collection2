@@ -201,7 +201,6 @@ The final derived analytical classifications are:
 |  | Instagram-only | 8,447 |
 |  | Other | 17,340 |
 
-The original `target_ages` and `publisher_platforms` fields remain unchanged. These classifications are added as derived variables for analysis.
 
 ## Sample construction
 
