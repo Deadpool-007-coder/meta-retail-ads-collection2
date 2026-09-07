@@ -1,0 +1,3 @@
+﻿validation_check,sample_n,correct,errors,metric,value
+excluded-signature validation,400,389,11,precision_pct,97.25
+retained-signature validation,1000,978,22,observed_miss_rate_pct,2.2

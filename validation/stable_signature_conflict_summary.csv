@@ -1,0 +1,8 @@
+﻿conflict_pattern,n_signature_groups
+publisher_platforms,892
+target_ages|target_gender,345
+target_gender,219
+target_ages,139
+publisher_platforms|target_gender,82
+publisher_platforms|target_ages,50
+publisher_platforms|target_ages|target_gender,20

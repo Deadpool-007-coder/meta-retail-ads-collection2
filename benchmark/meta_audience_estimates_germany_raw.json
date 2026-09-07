@@ -1,0 +1,1850 @@
+[
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:43.328985+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 36800000,
+          "estimate_mau_upper_bound": 43300000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:44.965792+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 17700000,
+          "estimate_mau_upper_bound": 20800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:46.260001+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 18600000,
+          "estimate_mau_upper_bound": 21800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:48.346586+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 5300000,
+          "estimate_mau_upper_bound": 6200000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:49.984529+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2500000,
+          "estimate_mau_upper_bound": 2900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:51.520548+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2700000,
+          "estimate_mau_upper_bound": 3100000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:53.055687+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 10200000,
+          "estimate_mau_upper_bound": 12000000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:54.387170+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 5200000,
+          "estimate_mau_upper_bound": 6100000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:58.278688+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4900000,
+          "estimate_mau_upper_bound": 5800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:50:59.820790+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 7800000,
+          "estimate_mau_upper_bound": 9200000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:01.469164+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3800000,
+          "estimate_mau_upper_bound": 4400000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:03.091131+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3900000,
+          "estimate_mau_upper_bound": 4600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:04.729634+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 5600000,
+          "estimate_mau_upper_bound": 6600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:06.264977+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2500000,
+          "estimate_mau_upper_bound": 3000000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:07.571133+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3000000,
+          "estimate_mau_upper_bound": 3500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:09.030746+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4700000,
+          "estimate_mau_upper_bound": 5500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:13.127344+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2200000,
+          "estimate_mau_upper_bound": 2600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:17.120822+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2500000,
+          "estimate_mau_upper_bound": 2900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "all",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:18.348752+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2900000,
+          "estimate_mau_upper_bound": 3400000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "male",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:19.740839+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1400000,
+          "estimate_mau_upper_bound": 1600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_instagram",
+    "gender": "female",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:23.983652+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1500000,
+          "estimate_mau_upper_bound": 1800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:25.311826+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 20200000,
+          "estimate_mau_upper_bound": 23800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:29.320965+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 10000000,
+          "estimate_mau_upper_bound": 11700000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:30.551428+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 10000000,
+          "estimate_mau_upper_bound": 11800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:31.884188+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1100000,
+          "estimate_mau_upper_bound": 1300000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:33.299136+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 521900,
+          "estimate_mau_upper_bound": 614000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:34.733350+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 529700,
+          "estimate_mau_upper_bound": 623100,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:36.166963+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4300000,
+          "estimate_mau_upper_bound": 5000000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:37.610020+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2200000,
+          "estimate_mau_upper_bound": 2600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:39.135082+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2000000,
+          "estimate_mau_upper_bound": 2400000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:40.475612+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 5000000,
+          "estimate_mau_upper_bound": 5900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:42.623188+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2500000,
+          "estimate_mau_upper_bound": 2900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:44.133173+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2500000,
+          "estimate_mau_upper_bound": 2900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:45.587525+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3900000,
+          "estimate_mau_upper_bound": 4600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:47.021144+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1900000,
+          "estimate_mau_upper_bound": 2200000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:48.556621+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2000000,
+          "estimate_mau_upper_bound": 2400000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:49.990123+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3400000,
+          "estimate_mau_upper_bound": 4000000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:51.424745+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1600000,
+          "estimate_mau_upper_bound": 1900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:52.958808+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1700000,
+          "estimate_mau_upper_bound": 2100000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "all",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:54.393958+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2300000,
+          "estimate_mau_upper_bound": 2700000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "male",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:55.825812+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1100000,
+          "estimate_mau_upper_bound": 1300000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "facebook_only",
+    "gender": "female",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "facebook"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:57.324546+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1200000,
+          "estimate_mau_upper_bound": 1400000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:51:58.898505+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 27600000,
+          "estimate_mau_upper_bound": 32500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:01.466669+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 13000000,
+          "estimate_mau_upper_bound": 15300000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "18-65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:03.098167+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 14100000,
+          "estimate_mau_upper_bound": 16600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:04.530005+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4800000,
+          "estimate_mau_upper_bound": 5600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:05.974279+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2300000,
+          "estimate_mau_upper_bound": 2600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "18-24",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 18,
+      "age_max": 24,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:07.508245+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2400000,
+          "estimate_mau_upper_bound": 2800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:09.045213+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 8500000,
+          "estimate_mau_upper_bound": 10100000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:10.683067+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4300000,
+          "estimate_mau_upper_bound": 5100000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "25-34",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 25,
+      "age_max": 34,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:12.210788+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 4100000,
+          "estimate_mau_upper_bound": 4800000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:13.632057+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 5800000,
+          "estimate_mau_upper_bound": 6900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:15.078247+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2700000,
+          "estimate_mau_upper_bound": 3200000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "35-44",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 35,
+      "age_max": 44,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:16.511176+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3000000,
+          "estimate_mau_upper_bound": 3600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:18.151198+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3900000,
+          "estimate_mau_upper_bound": 4600000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:19.788735+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1700000,
+          "estimate_mau_upper_bound": 1900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "45-54",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 45,
+      "age_max": 54,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:21.230422+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 2200000,
+          "estimate_mau_upper_bound": 2500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:22.868633+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 3000000,
+          "estimate_mau_upper_bound": 3500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:24.302099+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1300000,
+          "estimate_mau_upper_bound": 1500000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "55-64",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 55,
+      "age_max": 64,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:25.832393+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1600000,
+          "estimate_mau_upper_bound": 1900000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "all",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:27.263553+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 1500000,
+          "estimate_mau_upper_bound": 1700000,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "male",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        1
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:28.698474+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 655100,
+          "estimate_mau_upper_bound": 770700,
+          "estimate_ready": true
+        }
+      ]
+    }
+  },
+  {
+    "platform_scope": "instagram_only",
+    "gender": "female",
+    "age_band": "65+",
+    "targeting_spec": {
+      "geo_locations": {
+        "countries": [
+          "DE"
+        ]
+      },
+      "age_min": 65,
+      "age_max": 65,
+      "publisher_platforms": [
+        "instagram"
+      ],
+      "genders": [
+        2
+      ]
+    },
+    "collected_at_utc": "2026-08-28T14:52:30.234415+00:00",
+    "response": {
+      "data": [
+        {
+          "estimate_mau_lower_bound": 793300,
+          "estimate_mau_upper_bound": 933300,
+          "estimate_ready": true
+        }
+      ]
+    }
+  }
+]
