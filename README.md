@@ -190,6 +190,19 @@ Collects contextual Meta monthly-audience estimates for Germany for Facebook + I
 
 Builds the final 53,794-row analysis-ready dataset from the locked eligibility dataset. The script preserves all 24 original fields, adds 12 analytical/support variables, reproduces the stable textual creative signature, and validates row counts, identifiers, demographic denominators, derived shares, targeting categories, platform categories, and demographic reconciliation.
 
+The final derived analytical classifications are:
+
+| Variable | Category | N |
+|---|---|---:|
+| `age_scope` | Broad | 39,271 |
+|  | Narrow | 14,523 |
+| `platform_category` | Both | 22,950 |
+|  | Facebook-only | 5,057 |
+|  | Instagram-only | 8,447 |
+|  | Other | 17,340 |
+
+The original `target_ages` and `publisher_platforms` fields remain unchanged. These classifications are added as derived variables for analysis.
+
 ## Sample construction
 
 | Stage | Meta ad IDs |
@@ -227,19 +240,6 @@ The analysis-ready dataset is produced reproducibly by:
 ```text
 scripts/11_build_analysis_ready_dataset.py
 ```
-
-### Derived analytical classifications
-
-| Variable | Category | N |
-|---|---|---:|
-| `age_scope` | Broad | 39,271 |
-|  | Narrow | 14,523 |
-| `platform_category` | Both | 22,950 |
-|  | Facebook-only | 5,057 |
-|  | Instagram-only | 8,447 |
-|  | Other | 17,340 |
-
-The original `target_ages` and `publisher_platforms` fields remain unchanged. `age_scope` and `platform_category` are derived analytical classifications.
 
 ## Temporal construction
 
