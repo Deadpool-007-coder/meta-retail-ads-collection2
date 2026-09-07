@@ -543,3 +543,39 @@ Variable definitions for the main ad-level dataset and benchmark files are provi
 ```text
 DATA_DICTIONARY.md
 ```
+
+## Current methodological status
+
+The file `data/ads_eligibility_locked.csv` is the locked 53,794-row pre-analysis dataset produced after temporal and commercial-eligibility construction.
+
+The file `data/ads_analysis_ready.csv` is the final 53,794-row analysis-ready dataset. It preserves the 24 original variables from the locked dataset and adds 12 derived analytical and support variables. The primary observational unit remains one Meta ad ID.
+
+This repository documents data collection, temporal eligibility, commercial-eligibility classification, manual validation, demographic completeness, stable textual creative identification, contextual benchmark construction, and construction of the final analysis-ready dataset.
+
+The repository does **not** present substantive Chapter 4 or Chapter 5 findings.
+
+## Limitations relevant to dataset construction
+
+- The 20 retailers are a purposive sample and are not statistically representative of all German retailers.
+- REWE is not included in the primary 20-retailer dataset. Any REWE analysis would require a complete and directly comparable dataset and would be treated separately from the primary sample.
+- Meta's disclosed age and gender targeting fields do not represent the advertiser's complete targeting specification.
+- The stable creative signature is a textual identifier based on verified Page ID plus normalized body, title, caption, and description.
+- The textual creative signature cannot distinguish identical text paired with different visual assets because a stable visual-asset identifier is unavailable in the recollected data.
+- The same visual asset may also appear with different text and therefore receive different textual signatures.
+- The primary dataset is not collapsed by textual creative signature because repeated textual signatures can differ in disclosed targeting and publisher-platform configuration.
+- Meta-reported demographic reach is platform-reported measurement and should not be interpreted as independently verified unique individuals across Meta ad IDs.
+- Reach is not summed across different Meta ad IDs in the primary dataset.
+- The strict launch-cohort rule identifies ads by reported start date; it does not establish that all reported reach accrued inside the launch window.
+- The adult age denominator uses the six 18+ age buckets. The 13-17 and unknown-age categories remain separate and are not included in the adult denominator.
+- Rows without usable gender or adult-age denominators remain in the master dataset and are excluded only from analyses requiring the affected outcome. No demographic values are imputed.
+
+## Licensing and data use
+
+This repository contains researcher-written processing code together with data derived from Meta APIs.
+
+No Meta access token, ad-account credential, or other private authentication material is included.
+
+The Meta-derived data and raw API responses remain subject to the applicable Meta platform terms and policies. Their inclusion here is for academic transparency and reproducibility and should not be interpreted as granting rights beyond those permitted by the underlying platform terms.
+
+No separate open-source license is currently granted for the researcher-written code unless a `LICENSE` file is added to the repository. In the absence of a separate license, standard copyright restrictions apply.
+
