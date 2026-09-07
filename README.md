@@ -1,10 +1,10 @@
 # Meta Ads Delivery Recollection - German Retail Advertising
 
-This repository contains the data-collection, validation, and sample-construction pipeline for a Master's thesis examining the relationship between advertisers' disclosed audience targeting and demographic ad delivery on Meta in the German retail sector.
+This repository contains the data-collection, validation, sample-construction, and analysis-ready dataset pipeline for a Master's thesis examining the relationship between advertisers' disclosed audience targeting and demographic ad delivery on Meta in the German retail sector.
 
 The repository documents a fresh Meta Ad Library recollection designed to address methodological concerns identified in an earlier historical pipeline, especially temporal construction, commercial-eligibility filtering, stable creative identification, repeated textual creatives, demographic-data completeness, age-denominator construction, and reproducibility.
 
-The proposed primary pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The primary observational unit is **one Meta ad ID**. Reach values are not aggregated across different Meta ad IDs in the primary dataset.
+The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The primary observational unit is **one Meta ad ID**. Reach values are not aggregated across different Meta ad IDs in the primary dataset.
 
 ## Study scope
 
@@ -13,7 +13,7 @@ The proposed primary pre-analysis dataset contains **53,794 Meta Ad Library ad I
 - Primary retailers: 20
 - Sectors: Grocery, Fashion, Drugstore/Beauty, Home/DIY
 - Raw collection unit: one consolidated Meta Ad Library ad ID per row
-- Proposed primary analysis unit: one Meta Ad Library ad ID
+- Primary analysis unit: one Meta Ad Library ad ID
 - REWE is not part of the primary 20-retailer sample
 
 ### Retailers
@@ -32,7 +32,8 @@ The proposed primary pre-analysis dataset contains **53,794 Meta Ad Library ad I
 |-- requirements.txt
 |-- .gitignore
 |-- data/
-|   `-- ads_eligibility_locked.csv
+|   |-- ads_eligibility_locked.csv
+|   `-- ads_analysis_ready.csv
 |-- scripts/
 |   |-- recollection.py
 |   |-- 01_validate_recollection.py
@@ -44,7 +45,8 @@ The proposed primary pre-analysis dataset contains **53,794 Meta Ad Library ad I
 |   |-- 07_apply_validated_eligibility.py
 |   |-- 08_build_and_audit_stable_signature.py
 |   |-- 09_summarize_stable_signature_conflicts.py
-|   `-- 10_collect_meta_audience_benchmarks.py
+|   |-- 10_collect_meta_audience_benchmarks.py
+|   `-- 11_build_analysis_ready_dataset.py
 |-- audit/
 |   |-- commercial_eligibility_manual_decisions.csv
 |   |-- excluded_validation_manual_review.csv
@@ -184,6 +186,10 @@ Summarizes targeting and platform conflicts within repeated textual creative-sig
 
 Collects contextual Meta monthly-audience estimates for Germany for Facebook + Instagram, Facebook-only, and Instagram-only scopes.
 
+### `11_build_analysis_ready_dataset.py`
+
+Builds the final 53,794-row analysis-ready dataset from the locked eligibility dataset. The script preserves all 24 original fields, adds 12 analytical/support variables, reproduces the stable textual creative signature, and validates row counts, identifiers, demographic denominators, derived shares, targeting categories, platform categories, and demographic reconciliation.
+
 ## Sample construction
 
 | Stage | Meta ad IDs |
@@ -200,6 +206,40 @@ The final locked dataset is:
 ```text
 data/ads_eligibility_locked.csv
 ```
+
+## Analysis-ready dataset
+
+The final analysis-ready dataset is:
+
+```text
+data/ads_analysis_ready.csv
+```
+
+It contains **53,794 Meta ad IDs and 36 variables**:
+
+- 24 original variables from the locked eligibility dataset;
+- 12 derived analytical and support variables.
+
+The primary observational unit remains **one Meta ad ID**. No deduplication, reach aggregation, or demographic imputation is performed during construction.
+
+The analysis-ready dataset is produced reproducibly by:
+
+```text
+scripts/11_build_analysis_ready_dataset.py
+```
+
+### Derived analytical classifications
+
+| Variable | Category | N |
+|---|---|---:|
+| `age_scope` | Broad | 39,271 |
+|  | Narrow | 14,523 |
+| `platform_category` | Both | 22,950 |
+|  | Facebook-only | 5,057 |
+|  | Instagram-only | 8,447 |
+|  | Other | 17,340 |
+
+The original `target_ages` and `publisher_platforms` fields remain unchanged. `age_scope` and `platform_category` are derived analytical classifications.
 
 ## Temporal construction
 
@@ -362,10 +402,13 @@ Meta ad ID is retained separately for traceability.
 The final locked eligibility dataset contains:
 
 - 2 rows without Germany-specific demographic data
-- 16 rows with zero known-gender reach (`de_male + de_female = 0`)
+- 14 rows with complete demographic data but zero known-gender reach (`de_male + de_female = 0`)
+- 16 rows unable to produce `female_delivery_share` in total
 - 41,930 rows with positive unknown-gender reach
 - 21,829 rows with positive unknown-age reach
-- 7 rows with a zero adult-age denominator
+- 5 rows with complete age data but a zero adult-age denominator
+- 7 rows unable to produce `adult_18_34_share` in total
+- 53,792 rows with complete gender and age demographic fields
 - 0 rows where complete gender and age reach totals fail to reconcile
 
 These categories are kept conceptually separate. No demographic values are imputed.
@@ -380,14 +423,14 @@ They are not impression counts. They also should not be interpreted as independe
 
 Because the primary dataset remains at Meta-ad-ID level, reach is not summed across repeated Meta IDs for the primary analysis.
 
-## Planned demographic outcome construction
+## Derived demographic outcomes
 
 ### Gender composition
 
 Primary female delivery share:
 
 ```text
-female / (female + male)
+de_female / (de_female + de_male)
 ```
 
 Unknown-gender reach is excluded from the primary denominator. It is retained in the dataset so alternative denominators and missingness/sensitivity checks remain possible.
@@ -397,9 +440,9 @@ Unknown-gender reach is excluded from the primary denominator. It is retained in
 For adult comparisons, the 18-34 share is defined as:
 
 ```text
-(18-24 + 25-34)
+(de_age_18_24 + de_age_25_34)
 /
-(18-24 + 25-34 + 35-44 + 45-54 + 55-64 + 65+)
+(de_age_18_24 + de_age_25_34 + de_age_35_44 + de_age_45_54 + de_age_55_64 + de_age_65_plus)
 ```
 
 The 13-17 category and unknown-age category are not included in this adult denominator. They remain available as separate variables.
@@ -467,7 +510,10 @@ python scripts/06_build_eligibility_validation_sample.py
 python scripts/07_apply_validated_eligibility.py
 python scripts/08_build_and_audit_stable_signature.py
 python scripts/09_summarize_stable_signature_conflicts.py
+python scripts/11_build_analysis_ready_dataset.py
 ```
+
+Script 11 constructs `data/ads_analysis_ready.csv` from the locked eligibility dataset and validates the final analytical fields.
 
 ### 5. Collect the contextual benchmark separately
 
@@ -477,7 +523,7 @@ The benchmark collector additionally requires `META_AD_ACCOUNT_ID`:
 python scripts/10_collect_meta_audience_benchmarks.py
 ```
 
-Benchmark collection is separate from construction of the 53,794-row ad-level eligibility dataset.
+Benchmark collection is separate from construction of the 53,794-row ad-level analysis-ready dataset.
 
 ## Reproducibility and data handling
 
@@ -498,27 +544,3 @@ Variable definitions for the main ad-level dataset and benchmark files are provi
 ```text
 DATA_DICTIONARY.md
 ```
-
-## Current methodological status
-
-The file `data/ads_eligibility_locked.csv` is the **proposed primary pre-analysis dataset** being submitted for methodological approval before the substantive RQ1-RQ4 analysis is undertaken.
-
-This repository documents data collection, temporal eligibility, commercial-eligibility classification, manual validation, demographic completeness, stable textual creative identification, and benchmark construction. It does **not** present Chapter 4/5 substantive findings.
-
-## Limitations relevant to dataset construction
-
-- The 20 retailers are a purposive sample and are not statistically representative of all German retailers.
-- Meta's disclosed age and gender targeting fields do not represent the advertiser's complete targeting specification.
-- The textual creative signature cannot distinguish identical text paired with different visual assets because a stable visual-asset identifier is unavailable in the recollected data.
-- Meta-reported demographic reach is platform-reported measurement and should not be interpreted as independently verified unique individuals across ad IDs.
-- The strict launch-cohort rule identifies ads by reported start date; it does not establish that all reported reach accrued inside the launch window.
-
-## Licensing and data use
-
-This repository contains researcher-written processing code together with data derived from Meta APIs.
-
-No Meta access token, ad-account credential, or other private authentication material is included.
-
-The Meta-derived data and raw API responses remain subject to the applicable Meta platform terms and policies. Their inclusion here is for academic transparency and reproducibility and should not be interpreted as granting rights beyond those permitted by the underlying platform terms.
-
-No separate open-source license is currently granted for the researcher-written code unless a `LICENSE` file is added to the repository. In the absence of a separate license, standard copyright restrictions apply.
