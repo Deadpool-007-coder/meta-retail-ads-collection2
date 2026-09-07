@@ -1,0 +1,15 @@
+﻿metric,value
+input_ad_ids,53794
+primary_configurations,20397
+rows_removed_by_configuration_collapse,33397
+singleton_configurations,12490
+repeated_configurations,7907
+ad_ids_in_repeated_configurations,41304
+maximum_ad_ids_in_one_configuration,337
+gender_usable_configurations,20390
+gender_unusable_configurations,7
+age_usable_configurations,20393
+age_unusable_configurations,4
+retailer_conflicts,0
+sector_conflicts,0
+age_scope_conflicts,0

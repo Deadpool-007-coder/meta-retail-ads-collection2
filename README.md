@@ -4,7 +4,7 @@ This repository contains the data-collection, validation, sample-construction, a
 
 The repository documents a fresh Meta Ad Library recollection designed to address methodological concerns identified in an earlier historical pipeline, especially temporal construction, commercial-eligibility filtering, stable creative identification, repeated textual creatives, demographic-data completeness, age-denominator construction, and reproducibility.
 
-The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The primary observational unit is **one Meta ad ID**. Reach values are not aggregated across different Meta ad IDs in the primary dataset.
+The locked pre-analysis dataset contains 53,794 Meta Ad Library ad IDs. The primary analysis dataset contains 20,397 unique creative-targeting-platform configurations. The primary analytical unit is defined by `creative_signature_hash + target_gender + target_ages + platform_category`.
 
 ## Study scope
 
@@ -13,15 +13,15 @@ The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The 
 - Primary retailers: 20
 - Sectors: Grocery, Fashion, Drugstore/Beauty, Home/DIY
 - Raw collection unit: one consolidated Meta Ad Library ad ID per row
-- Primary analysis unit: one Meta Ad Library ad ID
+- Primary analysis unit: unique `creative_signature_hash + target_gender + target_ages + platform_category` configuration
 - REWE is not part of the primary 20-retailer sample
 
 ### Retailers
 
-**Grocery:** Aldi Nord, Aldi Süd, Penny, Lidl, Kaufland, Edeka Südwest  
-**Fashion:** Bonprix, Zalando, New Yorker, Zara, About You  
-**Drugstore/Beauty:** dm, Rossmann, Douglas, Müller, Flaconi  
-**Home/DIY:** Bauhaus, OBI, IKEA, Hornbach
+Grocery: Aldi Nord, Aldi Süd, Penny, Lidl, Kaufland, Edeka Südwest  
+Fashion: Bonprix, Zalando, New Yorker, Zara, About You  
+Drugstore/Beauty: dm, Rossmann, Douglas, Müller, Flaconi  
+Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 
 ## Repository structure
 
@@ -33,7 +33,8 @@ The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The 
 |-- .gitignore
 |-- data/
 |   |-- ads_eligibility_locked.csv
-|   `-- ads_analysis_ready.csv
+|   |-- ads_analysis_ready.csv
+|   `-- ads_primary_configuration_level.csv
 |-- scripts/
 |   |-- recollection.py
 |   |-- 01_validate_recollection.py
@@ -46,7 +47,8 @@ The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The 
 |   |-- 08_build_and_audit_stable_signature.py
 |   |-- 09_summarize_stable_signature_conflicts.py
 |   |-- 10_collect_meta_audience_benchmarks.py
-|   `-- 11_build_analysis_ready_dataset.py
+|   |-- 11_build_analysis_ready_dataset.py
+|   `-- 12_build_primary_configuration_dataset.py
 |-- audit/
 |   |-- commercial_eligibility_manual_decisions.csv
 |   |-- excluded_validation_manual_review.csv
@@ -54,7 +56,8 @@ The locked pre-analysis dataset contains **53,794 Meta Ad Library ad IDs**. The 
 |   `-- other_noncommercial_exclusions_full_review.csv
 |-- validation/
 |   |-- eligibility_validation_summary.csv
-|   `-- stable_signature_conflict_summary.csv
+|   |-- stable_signature_conflict_summary.csv
+|   `-- primary_configuration_summary.csv
 `-- benchmark/
     |-- meta_audience_estimates_germany.csv
     |-- meta_audience_estimates_germany_raw.json
@@ -94,7 +97,7 @@ Collecting these fields in one request avoids the cross-file representative-ID m
 
 ## Meta API credentials
 
-API credentials are **not stored in this repository**.
+API credentials are not stored in this repository.
 
 The recollection script requires:
 
@@ -190,6 +193,28 @@ Collects contextual Meta monthly-audience estimates for Germany for Facebook + I
 
 Builds the final 53,794-row analysis-ready dataset from the locked eligibility dataset. The script preserves all 24 original fields, adds 12 analytical/support variables, reproduces the stable textual creative signature, and validates row counts, identifiers, demographic denominators, derived shares, targeting categories, platform categories, and demographic reconciliation.
 
+### `12_build_primary_configuration_dataset.py`
+
+Builds the primary configuration-level analysis dataset by grouping on:
+
+```text
+creative_signature_hash
++ target_gender
++ target_ages
++ platform_category
+```
+
+Meta-reported demographic reach is summed within each configuration before `female_delivery_share` and `adult_18_34_share` are reconstructed. The script validates configuration uniqueness, retailer/sector consistency, demographic denominators, and share bounds.
+
+The resulting primary dataset contains:
+
+- 20,397 unique configurations
+- 12,490 singleton configurations
+- 7,907 repeated configurations
+- maximum 337 Meta ad IDs in one configuration
+- 20,390 gender-usable configurations
+- 20,393 age-usable configurations
+
 The final derived analytical classifications are:
 
 | Variable | Category | N |
@@ -211,7 +236,7 @@ The final derived analytical classifications are:
 | Temporal eligible | 60,329 |
 | Automatic commercial-eligibility exclusions | -6,480 |
 | Manual-review exclusions | -55 |
-| **Final locked eligibility dataset** | **53,794** |
+| Final locked eligibility dataset | 53,794 |
 
 The final locked dataset is:
 
@@ -219,32 +244,60 @@ The final locked dataset is:
 data/ads_eligibility_locked.csv
 ```
 
-## Analysis-ready dataset
+### Primary analytical construction
 
-The final analysis-ready dataset is:
+| Stage | Observations |
+|---|---:|
+| Ad-ID-level analysis-ready dataset | 53,794 |
+| Rows collapsed into repeated identical configurations | -33,397 |
+| Primary configuration-level dataset | 20,397 |
+
+The primary configuration key is `creative_signature_hash + target_gender + target_ages + platform_category`.
+
+## Analysis-ready datasets
+
+The ad-ID-level analysis-ready dataset is:
 
 ```text
 data/ads_analysis_ready.csv
 ```
 
-It contains **53,794 Meta ad IDs and 36 variables**:
+It contains 53,794 Meta ad IDs and 36 variables:
 
 - 24 original variables from the locked eligibility dataset;
 - 12 derived analytical and support variables.
 
-The primary observational unit remains **one Meta ad ID**. No deduplication, reach aggregation, or demographic imputation is performed during construction.
+This file preserves one row per Meta ad ID and is retained for traceability and sensitivity analyses.
 
-The analysis-ready dataset is produced reproducibly by:
+The primary configuration-level analysis dataset is:
+
+```text
+data/ads_primary_configuration_level.csv
+```
+
+It contains 20,397 unique configurations, defined by:
+
+```text
+creative_signature_hash
++ target_gender
++ target_ages
++ platform_category
+```
+
+Identical repeated deployments under the same creative, disclosed gender targeting, disclosed age targeting, and platform configuration contribute one primary analytical row.
+
+The two datasets are produced reproducibly by:
 
 ```text
 scripts/11_build_analysis_ready_dataset.py
+scripts/12_build_primary_configuration_dataset.py
 ```
 
 ## Temporal construction
 
 The Meta API was queried for the period 2025-09-06 through 2026-09-05. Because ads returned by the API can begin before the query period, temporal eligibility is defined using the reported delivery start date.
 
-The primary temporal rule is a **strict launch cohort**:
+The primary temporal rule is a strict launch cohort:
 
 ```text
 2025-09-06 <= ad_delivery_start_date_time <= 2026-09-05
@@ -277,7 +330,7 @@ Weak or ambiguous keywords are not sufficient for automatic exclusion. Cases inv
 
 ### Predefined manual-review bucket
 
-Script 04 assigned **867 Meta ad IDs** to manual review.
+Script 04 assigned 867 Meta ad IDs to manual review.
 
 - 812 were retained
 - 55 were excluded
@@ -292,7 +345,7 @@ These decisions are part of the predefined classification procedure and are ther
 | Drugstore/Beauty | 1,815 |
 | Fashion | 95 |
 | Home/DIY | 23 |
-| **Total** | **6,535** |
+| Total | 6,535 |
 
 ### Final commercial-eligibility removals by retailer
 
@@ -318,31 +371,31 @@ These decisions are part of the predefined classification procedure and are ther
 | Müller | 0 |
 | Bauhaus | 0 |
 | IKEA | 0 |
-| **Total** | **6,535** |
+| Total | 6,535 |
 
 ## Manual validation of the commercial-eligibility classifier
 
-Validation is performed at the level of **distinct textual creative signatures**, not individual Meta ad IDs, so repeated copies of the same text do not dominate the audit.
+Validation is performed at the level of distinct textual creative signatures, not individual Meta ad IDs, so repeated copies of the same text do not dominate the audit.
 
 ### Excluded-signature validation
 
-A reproducible sample of **400 distinct recruitment-exclusion signatures** was manually reviewed.
+A reproducible sample of 400 distinct recruitment-exclusion signatures was manually reviewed.
 
 - 389 were confirmed non-commercial exclusions
 - 11 were judged commercial false positives
-- observed exclusion precision: **97.25%**
+- observed exclusion precision: 97.25%
 
-Recruitment was the dominant automatic exclusion rule. The additional **16 automatic exclusions assigned to non-recruitment non-commercial categories were reviewed in full**.
+Recruitment was the dominant automatic exclusion rule. The additional 16 automatic exclusions assigned to non-recruitment non-commercial categories were reviewed in full.
 
 The validation examines all four text fields, so evidence located in title, caption, or description is not ignored when the body field alone is insufficient.
 
 ### Retained-signature validation
 
-A reproducible sample of **1,000 distinct retained textual signatures** was manually reviewed.
+A reproducible sample of 1,000 distinct retained textual signatures was manually reviewed.
 
 - 978 were judged correctly retained commercial content
 - 22 were judged non-commercial misses
-- observed validation-sample miss rate: **2.2%**
+- observed validation-sample miss rate: 2.2%
 
 Because this sample is stratified by retailer and drawn from distinct textual signatures rather than directly from all Meta ad IDs, the 2.2% figure is treated as a classifier diagnostic rather than a direct estimate of the proportion of all retained Meta ad IDs that are misclassified.
 
@@ -350,8 +403,8 @@ Because this sample is stratified by retailer and drawn from distinct textual si
 
 Two forms of manual review are intentionally separated:
 
-1. **Predefined manual-review cases:** the 867 uncertain cases identified by the rule-based classifier are adjudicated and their decisions affect the production dataset.
-2. **Independent validation samples:** the 400 excluded signatures and 1,000 retained signatures are used to evaluate classifier performance. Their sampled judgments are not selectively applied to production rows.
+1. Predefined manual-review cases: the 867 uncertain cases identified by the rule-based classifier are adjudicated and their decisions affect the production dataset.
+2. Independent validation samples: the 400 excluded signatures and 1,000 retained signatures are used to evaluate classifier performance. Their sampled judgments are not selectively applied to production rows.
 
 This separation preserves an independent assessment of the filtering procedure.
 
@@ -388,11 +441,11 @@ The stable signature audit of the 53,794 eligible Meta ad IDs found:
 | Publisher platform + target gender | 82 |
 | Publisher platform + target age | 50 |
 | Publisher platform + target age + target gender | 20 |
-| **Total** | **1,747** |
+| Total | 1,747 |
 
-These conflicts show that collapsing all rows solely by textual signature would remove variation in variables central to the research questions. The primary dataset is therefore retained at Meta-ad-ID level.
+These conflicts show that collapsing solely by textual signature would remove variation in variables central to the research questions. The primary analytical unit therefore combines textual creative signature with disclosed gender targeting, disclosed age targeting, and platform category.
 
-The signature is explicitly a **textual** creative identifier. Meta does not provide a stable visual-asset identifier in this recollection. Consequently, identical text may in principle accompany different images or videos, while the same visual asset may appear with different text.
+The signature is explicitly a textual creative identifier. Meta does not provide a stable visual-asset identifier in this recollection. Consequently, identical text may in principle accompany different images or videos, while the same visual asset may appear with different text.
 
 Meta ad ID is retained separately for traceability.
 
@@ -416,11 +469,11 @@ Model-specific analytical sample sizes will therefore depend on the outcome requ
 
 ## Demographic reach interpretation
 
-The Germany-specific demographic variables are **Meta-reported reach counts**.
+The Germany-specific demographic variables are Meta-reported reach counts.
 
 They are not impression counts. They also should not be interpreted as independently verified unique persons across multiple Meta ad IDs.
 
-Because the primary dataset remains at Meta-ad-ID level, reach is not summed across repeated Meta IDs for the primary analysis.
+For the primary configuration-level analysis, reach is summed across Meta ad IDs that share the same configuration. These totals are aggregated Meta-reported reach counts and are not interpreted as independently verified unique individuals.
 
 ## Derived demographic outcomes
 
@@ -448,7 +501,7 @@ The 13-17 category and unknown-age category are not included in this adult denom
 
 ## Contextual Meta audience benchmark
 
-The `benchmark/` directory contains Meta estimated monthly audience sizes for Germany collected on **28 August 2026**.
+The `benchmark/` directory contains Meta estimated monthly audience sizes for Germany collected on 28 August 2026.
 
 The benchmark covers:
 
@@ -469,7 +522,7 @@ benchmark/meta_audience_benchmark_full_with_formulas.xlsx
 
 The CSV is the cleaned benchmark table. The JSON preserves the raw Meta API targeting specifications and responses. The workbook provides a readable calculation/verification layer.
 
-The benchmark is **contextual**. It is not treated as an intended demographic distribution and is not used as a conventional hypothesis-test null value. In particular, unrestricted (`All`) gender targeting does not imply an intended 50/50 male/female delivery split.
+The benchmark is contextual. It is not treated as an intended demographic distribution and is not used as a conventional hypothesis-test null value. In particular, unrestricted (`All`) gender targeting does not imply an intended 50/50 male/female delivery split.
 
 ## Reproduction
 
@@ -485,7 +538,7 @@ pip install -r requirements.txt
 
 ### 2. Configure API credentials
 
-Set the required environment variables as described in **Meta API credentials** above.
+Set the required environment variables as described in Meta API credentials above.
 
 ### 3. Run the recollection
 
@@ -510,9 +563,10 @@ python scripts/07_apply_validated_eligibility.py
 python scripts/08_build_and_audit_stable_signature.py
 python scripts/09_summarize_stable_signature_conflicts.py
 python scripts/11_build_analysis_ready_dataset.py
+python scripts/12_build_primary_configuration_dataset.py
 ```
 
-Script 11 constructs `data/ads_analysis_ready.csv` from the locked eligibility dataset and validates the final analytical fields.
+Script 11 constructs `data/ads_analysis_ready.csv` from the locked eligibility dataset. Script 12 then constructs `data/ads_primary_configuration_level.csv` and writes `validation/primary_configuration_summary.csv`.
 
 ### 5. Collect the contextual benchmark separately
 
@@ -522,7 +576,7 @@ The benchmark collector additionally requires `META_AD_ACCOUNT_ID`:
 python scripts/10_collect_meta_audience_benchmarks.py
 ```
 
-Benchmark collection is separate from construction of the 53,794-row ad-level analysis-ready dataset.
+Benchmark collection is separate from construction of both the 53,794-row ad-level dataset and the 20,397-row primary configuration-level dataset.
 
 ## Reproducibility and data handling
 
@@ -532,13 +586,14 @@ Benchmark collection is separate from construction of the 53,794-row ad-level an
 - Text normalization is used only for filtering/signature logic.
 - Validation sampling uses fixed random seeds where sampling is required.
 - Independent validation samples are retained as audit evidence.
-- The final ad-level dataset is not deduplicated by textual creative signature.
-- Reach is not aggregated across Meta ad IDs in the primary dataset.
+- The 53,794-row ad-level dataset is retained unchanged for traceability and sensitivity analyses.
+- The primary analytical dataset collapses only identical creative-targeting-platform configurations.
+- Reach aggregated within a primary configuration is treated as aggregated Meta-reported reach, not verified unique individuals.
 - API credentials, `.env` files, checkpoints, temporary collection files, and local virtual environments are excluded by `.gitignore`.
 
 ## Data dictionary
 
-Variable definitions for the main ad-level dataset and benchmark files are provided in:
+Variable definitions for the ad-level dataset and benchmark files are provided in:
 
 ```text
 DATA_DICTIONARY.md
@@ -548,11 +603,13 @@ DATA_DICTIONARY.md
 
 The file `data/ads_eligibility_locked.csv` is the locked 53,794-row pre-analysis dataset produced after temporal and commercial-eligibility construction.
 
-The file `data/ads_analysis_ready.csv` is the final 53,794-row analysis-ready dataset. It preserves the 24 original variables from the locked dataset and adds 12 derived analytical and support variables. The primary observational unit remains one Meta ad ID.
+The file `data/ads_analysis_ready.csv` is the 53,794-row ad-ID-level analysis-ready dataset. It preserves the 24 original variables from the locked dataset and adds 12 derived analytical and support variables.
 
-This repository documents data collection, temporal eligibility, commercial-eligibility classification, manual validation, demographic completeness, stable textual creative identification, contextual benchmark construction, and construction of the final analysis-ready dataset.
+The file `data/ads_primary_configuration_level.csv` is the primary analysis dataset with 20,397 unique creative-targeting-platform configurations. It is constructed reproducibly from the ad-ID-level file by `scripts/12_build_primary_configuration_dataset.py`.
 
-The repository does **not** present substantive Chapter 4 or Chapter 5 findings.
+This repository documents data collection, temporal eligibility, commercial-eligibility classification, manual validation, demographic completeness, stable textual creative identification, contextual benchmark construction, ad-ID-level dataset construction, and primary configuration-level dataset construction.
+
+The repository does not present substantive Chapter 4 or Chapter 5 findings.
 
 ## Limitations relevant to dataset construction
 
@@ -562,9 +619,9 @@ The repository does **not** present substantive Chapter 4 or Chapter 5 findings.
 - The stable creative signature is a textual identifier based on verified Page ID plus normalized body, title, caption, and description.
 - The textual creative signature cannot distinguish identical text paired with different visual assets because a stable visual-asset identifier is unavailable in the recollected data.
 - The same visual asset may also appear with different text and therefore receive different textual signatures.
-- The primary dataset is not collapsed by textual creative signature because repeated textual signatures can differ in disclosed targeting and publisher-platform configuration.
+- The primary dataset is not collapsed by textual creative signature alone because repeated textual signatures can differ in disclosed targeting and publisher-platform configuration; the primary key therefore includes signature, gender targeting, age targeting, and platform category.
 - Meta-reported demographic reach is platform-reported measurement and should not be interpreted as independently verified unique individuals across Meta ad IDs.
-- Reach is not summed across different Meta ad IDs in the primary dataset.
+- Reach is summed only across Meta ad IDs within the same primary configuration; these totals are aggregated Meta-reported reach and not verified unique individuals.
 - The strict launch-cohort rule identifies ads by reported start date; it does not establish that all reported reach accrued inside the launch window.
 - The adult age denominator uses the six 18+ age buckets. The 13-17 and unknown-age categories remain separate and are not included in the adult denominator.
 - Rows without usable gender or adult-age denominators remain in the master dataset and are excluded only from analyses requiring the affected outcome. No demographic values are imputed.
