@@ -1,4 +1,4 @@
-# Meta Ads Delivery Recollection - German Retail Advertising
+# Meta Ads Delivery collection - German Retail Advertising
 
 This repository contains the data-collection, validation, sample-construction, and analysis-ready dataset pipeline for a Master's thesis examining the relationship between advertisers' disclosed audience targeting and demographic ad delivery on Meta in the German retail sector.
 
