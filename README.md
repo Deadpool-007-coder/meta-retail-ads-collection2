@@ -26,16 +26,19 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 ## Repository structure
 
 ```text
-.
 |-- README.md
 |-- DATA_DICTIONARY.md
 |-- requirements.txt
 |-- .gitignore
 |-- data/
+|   |-- metadata/
+|   |   |-- verified_page_ids.json
+|   |   `-- page_id_selection_audit.json
 |   |-- ads_eligibility_locked.csv
 |   |-- ads_analysis_ready.csv
 |   `-- ads_primary_configuration_level.csv
 |-- scripts/
+|   |-- 00_find_page_ids.py
 |   |-- recollection.py
 |   |-- 01_validate_recollection.py
 |   |-- 02_audit_temporal_eligibility.py
@@ -62,9 +65,12 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
     |-- meta_audience_estimates_germany.csv
     |-- meta_audience_estimates_germany_raw.json
     `-- meta_audience_benchmark_full_with_formulas.xlsx
-```
 
 ## Data collection
+
+### Retailer Page-ID identification
+
+scripts/00_find_page_ids.py identifies the Meta Page IDs for the 20 selected retailers using retailer-specific Meta Ad Library searches and predefined page-name matching rules. Obvious recruitment and foreign-market pages are rejected.
 
 ### Meta Ad Library recollection
 
@@ -133,6 +139,10 @@ export META_AD_ACCOUNT_ID="your_ad_account_id_here"
 ## Pipeline
 
 The scripts are numbered in execution order after recollection.
+
+### 00_find_page_ids.py
+
+Queries the Meta Ad Library API with retailer-specific search terms, evaluates returned page_id and page_name candidates using predefined page-name rules, rejects obvious recruitment and foreign-market pages, and writes the selected Page IDs together with a candidate-selection audit.
 
 ### `recollection.py`
 
