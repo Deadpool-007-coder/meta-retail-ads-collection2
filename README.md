@@ -32,8 +32,6 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 |-- .gitignore
 |-- data/
 |   |-- metadata/
-|   |   |-- verified_page_ids.json
-|   |   `-- page_id_selection_audit.json
 |   |-- ads_eligibility_locked.csv
 |   |-- ads_analysis_ready.csv
 |   `-- ads_primary_configuration_level.csv
