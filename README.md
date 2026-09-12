@@ -64,6 +64,8 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
     |-- meta_audience_estimates_germany_raw.json
     `-- meta_audience_benchmark_full_with_formulas.xlsx
 
+
+
 ## Data collection
 
 ### Retailer Page-ID identification
