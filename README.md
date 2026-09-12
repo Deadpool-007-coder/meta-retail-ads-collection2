@@ -65,7 +65,6 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
     `-- meta_audience_benchmark_full_with_formulas.xlsx
 
 
-
 ## Data collection
 
 ### Retailer Page-ID identification
@@ -98,8 +97,6 @@ The following creative and disclosed-delivery fields are retained on the same ro
 - delivery start and stop timestamps
 - Germany-specific gender reach
 - Germany-specific age-bucket reach
-
-Collecting these fields in one request avoids the cross-file representative-ID merge problem present in the earlier historical pipeline.
 
 ## Meta API credentials
 
@@ -135,7 +132,6 @@ Example in Bash/Zsh:
 export META_ACCESS_TOKEN="your_token_here"
 export META_AD_ACCOUNT_ID="your_ad_account_id_here"
 ```
-
 ## Pipeline
 
 The scripts are numbered in execution order after recollection.
@@ -638,7 +634,7 @@ The repository does not present substantive Chapter 4 or Chapter 5 findings.
 
 ## Licensing and data use
 
-This repository contains researcher-written processing code together with data derived from Meta APIs.
+This repository contains processing code together with data derived from Meta APIs.
 
 No Meta access token, ad-account credential, or other private authentication material is included.
 
