@@ -1,9 +1,11 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 # Required packages
 library(clubSandwich)
 library(marginaleffects)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 # Reference categories
 Dataset$target_gender <- factor(Dataset$target_gender, levels=c("All","Men","Women"))
@@ -280,7 +282,7 @@ H1b.lobo.range <- data.frame(
 H1b.lobo.range
 
 # Export H1 results to one Excel sheet
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H1" %in% names(wb)) removeWorksheet(wb, "H1")
@@ -369,4 +371,5 @@ writeData(wb, "H1", "H1b LOBO range by sector", startRow=r); r <- r+1
 writeData(wb, "H1", H1b.lobo.range, startRow=r)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
 

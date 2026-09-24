@@ -1,10 +1,12 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 library(clubSandwich)
 library(marginaleffects)
 library(lmtest)
 library(RcmdrMisc)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 Dataset$target_gender <- factor(Dataset$target_gender, levels=c("All","Men","Women"))
 Dataset$sector <- factor(Dataset$sector, levels=c("grocery","fashion","health_beauty","home"))
@@ -125,7 +127,7 @@ clean <- function(x){
 }
 
 # Export H2 results
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H2" %in% names(wb)) removeWorksheet(wb, "H2")
@@ -160,4 +162,5 @@ put("H2 Reach >=1000", H2.reach1000)
 put("H2 Reach-weighted", H2.weighted)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
 

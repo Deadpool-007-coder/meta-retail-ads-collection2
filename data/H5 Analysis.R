@@ -1,9 +1,11 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 # Required packages
 library(clubSandwich)
 library(marginaleffects)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 # Reference categories
 Dataset$target_gender <- factor(Dataset$target_gender, levels=c("All","Men","Women"))
@@ -137,7 +139,7 @@ for (x in c("H5.pred","H5.comp","H5.interaction.pred","H5.interaction.comp","H5.
 }
 
 # Export H5 results
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H5" %in% names(wb)) removeWorksheet(wb, "H5")
@@ -176,4 +178,5 @@ put("H5 Reach >=1000 predicted shares", H5.reach1000.pred)
 put("H5 Reach >=1000 contrast", H5.reach1000.comp)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
 

@@ -1,7 +1,9 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
-Benchmark <- read.csv("C:/Users/Rishu/Desktop/github_benchmark_upload_final/benchmark/meta_audience_estimates_germany.csv", stringsAsFactors=FALSE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+Benchmark <- read.csv("benchmark/meta_audience_estimates_germany.csv", stringsAsFactors=FALSE)
 
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 Dataset$target_gender <- factor(Dataset$target_gender, levels=c("All","Men","Women"))
 Dataset$sector <- factor(Dataset$sector, levels=c("grocery","fashion","health_beauty","home"))
@@ -83,7 +85,7 @@ H5.retailers <- length(unique(H5.benchmark.data$search_brand))
 H5.retailers
 
 # Export
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("Benchmark_H4_H5" %in% names(wb)) removeWorksheet(wb, "Benchmark_H4_H5")
@@ -116,4 +118,5 @@ r <- r+1
 writeData(wb, "Benchmark_H4_H5", data.frame(Retailers=H5.retailers), startRow=r)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
 

@@ -1,9 +1,11 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 # Required packages
 library(clubSandwich)
 library(marginaleffects)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 # Reference categories
 Dataset$target_gender <- factor(Dataset$target_gender, levels=c("All","Men","Women"))
@@ -94,7 +96,7 @@ for (x in c("H4.pred","H4.comp","H4.reach1000.pred","H4.reach1000.comp")) {
 }
 
 # Export H4 results
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H4" %in% names(wb)) removeWorksheet(wb, "H4")
@@ -119,4 +121,5 @@ put("H4 Reach >=1000 predicted shares", H4.reach1000.pred)
 put("H4 Reach >=1000 contrasts", H4.reach1000.comp)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
 

@@ -1,4 +1,4 @@
-# H7 specification check
+﻿# H7 specification check
 # Platform x sector interaction model
 # Supported sectors only: Grocery, Health/Beauty, Home
 
@@ -9,6 +9,8 @@ plot_file <- "results/H7_specification_check.png"
 library(dplyr)
 library(openxlsx)
 library(ggplot2)
+
+dir.create("results", showWarnings = FALSE)
 
 Dataset <- read.csv(
   data_file,

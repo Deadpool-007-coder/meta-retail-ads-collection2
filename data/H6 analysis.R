@@ -1,9 +1,11 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 # Required packages
 library(clubSandwich)
 library(marginaleffects)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 # Reference categories
 Dataset$sector <- factor(Dataset$sector, levels=c("grocery","fashion","health_beauty","home"))
@@ -14,22 +16,21 @@ levels(Dataset$sector)
 levels(Dataset$platform_category)
 
 # H6 Adult-only 18-34 share
-Dataset$adult_18_34_share_adult <- with(Dataset, ifelse(!is.na(known_adult_reach) & known_adult_reach>0, (de_age_18_24 + de_age_25_34)/known_adult_reach, NA))
 
 # H6 Full descriptive/support sample
-d6 <- droplevels(subset(Dataset, platform_category %in% c("Facebook-only","Instagram-only") & !is.na(adult_18_34_share_adult)))
+d6 <- droplevels(subset(Dataset, platform_category %in% c("Facebook-only","Instagram-only") & !is.na(adult_18_34_share)))
 
 # H6 Cell support
 H6.cells <- as.data.frame.matrix(table(d6$sector, d6$platform_category))
 H6.cells
 
 # H6 Descriptives
-H6.desc <- aggregate(adult_18_34_share_adult ~ platform_category, d6, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x), Min=min(x), Max=max(x)))
+H6.desc <- aggregate(adult_18_34_share ~ platform_category, d6, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x), Min=min(x), Max=max(x)))
 H6.desc <- do.call(data.frame, H6.desc)
 H6.desc
 
 # H6 Descriptives by sector and platform
-H6.desc.sector <- aggregate(adult_18_34_share_adult ~ sector + platform_category, d6, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x)))
+H6.desc.sector <- aggregate(adult_18_34_share ~ sector + platform_category, d6, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x)))
 H6.desc.sector <- do.call(data.frame, H6.desc.sector)
 H6.desc.sector
 
@@ -40,7 +41,7 @@ H6.sample <- data.frame(N=nrow(d6s), Retailers=length(unique(d6s$search_brand)))
 H6.sample
 
 # H6 Primary pooled fractional-logit model
-GLM.3 <- glm(adult_18_34_share_adult ~ platform_category + sector, family=quasibinomial(logit), data=d6s)
+GLM.3 <- glm(adult_18_34_share ~ platform_category + sector, family=quasibinomial(logit), data=d6s)
 summary(GLM.3)
 
 # H6 Convergence
@@ -51,7 +52,7 @@ H6.converged
 d6s$hat <- predict(GLM.3, type="link")
 d6s$hat2 <- d6s$hat^2
 
-m <- glm(adult_18_34_share_adult ~ hat + hat2, family=quasibinomial(logit), data=d6s)
+m <- glm(adult_18_34_share ~ hat + hat2, family=quasibinomial(logit), data=d6s)
 
 H6.link <- data.frame(Term=rownames(summary(m)$coefficients), summary(m)$coefficients, row.names=NULL)
 H6.link
@@ -70,7 +71,7 @@ H6.comp <- avg_comparisons(GLM.3, variables=list(platform_category="reference"),
 H6.comp
 
 # H6 Platform-by-sector interaction on supported sectors
-m <- glm(adult_18_34_share_adult ~ platform_category * sector, family=quasibinomial(logit), data=d6s)
+m <- glm(adult_18_34_share ~ platform_category * sector, family=quasibinomial(logit), data=d6s)
 
 H6.interaction.converged <- data.frame(Converged=m$converged)
 H6.interaction.converged
@@ -91,7 +92,7 @@ H6.interaction.comp
 
 # H6 LOBO
 LOBO <- do.call(rbind, lapply(unique(d6s$search_brand), function(b){
-  m <- glm(adult_18_34_share_adult ~ platform_category + sector, family=quasibinomial(logit), data=d6s[d6s$search_brand != b,])
+  m <- glm(adult_18_34_share ~ platform_category + sector, family=quasibinomial(logit), data=d6s[d6s$search_brand != b,])
   x <- as.data.frame(avg_comparisons(m, variables=list(platform_category="reference"), type="response"))
   x$brand <- b
   x
@@ -106,7 +107,7 @@ d <- droplevels(subset(d6s, known_adult_reach >= 1000))
 H6.reach1000.sample <- data.frame(N=nrow(d), Retailers=length(unique(d$search_brand)))
 H6.reach1000.sample
 
-m <- glm(adult_18_34_share_adult ~ platform_category + sector, family=quasibinomial(logit), data=d)
+m <- glm(adult_18_34_share ~ platform_category + sector, family=quasibinomial(logit), data=d)
 
 H6.reach1000.cr2 <- coef_test(m, vcov="CR2", cluster=d$search_brand, test="Satterthwaite")
 H6.reach1000.cr2
@@ -128,7 +129,7 @@ for (x in c("H6.pred","H6.comp","H6.interaction.pred","H6.interaction.comp","H6.
 }
 
 # Export H6 results
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H6" %in% names(wb)) removeWorksheet(wb, "H6")
@@ -166,4 +167,6 @@ put("H6 Reach >=1000 predicted shares", H6.reach1000.pred)
 put("H6 Reach >=1000 contrast", H6.reach1000.comp)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
+
 

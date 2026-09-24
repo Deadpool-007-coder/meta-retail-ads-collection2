@@ -1,9 +1,11 @@
-Dataset <- read.csv("C:/Users/Rishu/Desktop/meta-retail-ads-collection2/data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
+﻿Dataset <- read.csv("data/ads_primary_configuration_level.csv", stringsAsFactors=TRUE)
 
 # Required packages
 library(clubSandwich)
 library(marginaleffects)
 library(openxlsx)
+
+dir.create("results", showWarnings = FALSE)
 
 # Reference categories
 Dataset$sector <- factor(Dataset$sector, levels=c("grocery","fashion","health_beauty","home"))
@@ -14,17 +16,16 @@ levels(Dataset$sector)
 levels(Dataset$platform_category)
 
 # H7 Adult-only 18-34 share
-Dataset$adult_18_34_share_adult <- with(Dataset, ifelse(!is.na(known_adult_reach) & known_adult_reach>0, (de_age_18_24 + de_age_25_34)/known_adult_reach, NA))
 
 # H7 Full descriptive/support sample
-d7 <- droplevels(subset(Dataset, platform_category %in% c("Facebook-only","Instagram-only") & !is.na(adult_18_34_share_adult)))
+d7 <- droplevels(subset(Dataset, platform_category %in% c("Facebook-only","Instagram-only") & !is.na(adult_18_34_share)))
 
 # H7 Cell support
 H7.cells <- as.data.frame.matrix(table(d7$sector, d7$platform_category))
 H7.cells
 
 # H7 Descriptives by sector and platform
-H7.desc <- aggregate(adult_18_34_share_adult ~ sector + platform_category, d7, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x), Min=min(x), Max=max(x)))
+H7.desc <- aggregate(adult_18_34_share ~ sector + platform_category, d7, function(x) c(N=length(x), Mean=mean(x), SD=sd(x), Median=median(x), Min=min(x), Max=max(x)))
 H7.desc <- do.call(data.frame, H7.desc)
 H7.desc
 
@@ -36,7 +37,7 @@ H7.sample <- data.frame(N=nrow(d7s), Retailers=length(unique(d7s$search_brand)))
 H7.sample
 
 # H7 Primary platform-by-sector interaction model
-GLM.3 <- glm(adult_18_34_share_adult ~ platform_category * sector, family=quasibinomial(logit), data=d7s)
+GLM.3 <- glm(adult_18_34_share ~ platform_category * sector, family=quasibinomial(logit), data=d7s)
 summary(GLM.3)
 
 # H7 Convergence
@@ -47,7 +48,7 @@ H7.converged
 d7s$hat <- predict(GLM.3, type="link")
 d7s$hat2 <- d7s$hat^2
 
-m <- glm(adult_18_34_share_adult ~ hat + hat2, family=quasibinomial(logit), data=d7s)
+m <- glm(adult_18_34_share ~ hat + hat2, family=quasibinomial(logit), data=d7s)
 
 H7.link <- data.frame(Term=rownames(summary(m)$coefficients), summary(m)$coefficients, row.names=NULL)
 H7.link
@@ -71,7 +72,7 @@ H7.comp
 
 # H7 LOBO
 LOBO <- do.call(rbind, lapply(unique(d7s$search_brand), function(b){
-  m <- glm(adult_18_34_share_adult ~ platform_category * sector, family=quasibinomial(logit), data=d7s[d7s$search_brand != b,])
+  m <- glm(adult_18_34_share ~ platform_category * sector, family=quasibinomial(logit), data=d7s[d7s$search_brand != b,])
   x <- as.data.frame(avg_comparisons(m, variables=list(platform_category="reference"), by="sector", type="response"))
   x$brand <- b
   x
@@ -86,7 +87,7 @@ d <- droplevels(subset(d7s, known_adult_reach >= 1000))
 H7.reach1000.sample <- data.frame(N=nrow(d), Retailers=length(unique(d$search_brand)))
 H7.reach1000.sample
 
-m <- glm(adult_18_34_share_adult ~ platform_category * sector, family=quasibinomial(logit), data=d)
+m <- glm(adult_18_34_share ~ platform_category * sector, family=quasibinomial(logit), data=d)
 
 H7.reach1000.cr2 <- coef_test(m, vcov="CR2", cluster=d$search_brand, test="Satterthwaite")
 H7.reach1000.cr2
@@ -111,7 +112,7 @@ for (x in c("H7.pred","H7.comp","H7.reach1000.pred","H7.reach1000.comp")) {
 }
 
 # Export H7 results
-file <- "C:/Users/Rishu/Desktop/Thesis_Results.xlsx"
+file <- "results/Thesis_Results.xlsx"
 wb <- if (file.exists(file)) loadWorkbook(file) else createWorkbook()
 
 if ("H7" %in% names(wb)) removeWorksheet(wb, "H7")
@@ -143,4 +144,6 @@ put("H7 Reach >=1000 predicted shares", H7.reach1000.pred)
 put("H7 Reach >=1000 contrasts", H7.reach1000.comp)
 
 saveWorkbook(wb, file, overwrite=TRUE)
+
+
 
