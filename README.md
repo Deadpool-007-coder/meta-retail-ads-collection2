@@ -1,4 +1,4 @@
-# Meta Ads Delivery Collection — German Retail Advertising
+# Meta Ads Delivery Collection - German Retail Advertising
 
 This repository contains the data collection, validation, dataset construction, and statistical analysis pipeline for the Master's dissertation:
 
