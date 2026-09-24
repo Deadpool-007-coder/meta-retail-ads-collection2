@@ -24,6 +24,8 @@ Drugstore/Beauty: dm, Rossmann, Douglas, Müller, Flaconi
 Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 
 ### Data Tree
+
+```text
 |-- README.md
 |-- DATA_DICTIONARY.md
 |-- requirements.txt
