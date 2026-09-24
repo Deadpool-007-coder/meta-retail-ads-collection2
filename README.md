@@ -221,3 +221,15 @@ ggplot2
 ```
 
 The final dissertation version should be identified using the final Git commit hash or release tag.
+
+## Licensing and usage
+
+Source code in this repository is provided for academic and reproducibility purposes.
+
+Unless otherwise stated, repository code may be reused with appropriate attribution.
+
+Meta-derived data remain subject to applicable Meta platform terms, API conditions, and data-governance requirements. Public redistribution of raw or derived Meta data should only occur where permitted.
+
+This repository does not grant any additional rights to Meta data, trademarks, platform content, or third-party materials.
+
+Users are responsible for ensuring that any reuse of the data or code complies with applicable platform terms, institutional requirements, and relevant law.
