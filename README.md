@@ -23,18 +23,27 @@ Fashion: Bonprix, Zalando, New Yorker, Zara, About You
 Drugstore/Beauty: dm, Rossmann, Douglas, Müller, Flaconi  
 Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 
-## Repository structure
-
-```text
+### Data Tree
 |-- README.md
 |-- DATA_DICTIONARY.md
 |-- requirements.txt
 |-- .gitignore
+|
 |-- data/
 |   |-- metadata/
 |   |-- ads_eligibility_locked.csv
 |   |-- ads_analysis_ready.csv
-|   `-- ads_primary_configuration_level.csv
+|   |-- ads_primary_configuration_level.csv
+|   |-- H1 analysis.R
+|   |-- H2 analysis.R
+|   |-- H3 Analysis.R
+|   |-- H4 Analysis.R
+|   |-- H5 Analysis.R
+|   |-- H6 analysis.R
+|   |-- H7 Analysis.R
+|   |-- # H7 specification check.R
+|   `-- Benchmark H5-H6.R
+|
 |-- scripts/
 |   |-- 00_find_page_ids.py
 |   |-- recollection.py
@@ -50,20 +59,22 @@ Home/DIY: Bauhaus, OBI, IKEA, Hornbach
 |   |-- 10_collect_meta_audience_benchmarks.py
 |   |-- 11_build_analysis_ready_dataset.py
 |   `-- 12_build_primary_configuration_dataset.py
+|
 |-- audit/
 |   |-- commercial_eligibility_manual_decisions.csv
 |   |-- excluded_validation_manual_review.csv
 |   |-- retained_validation_manual_review.csv
 |   `-- other_noncommercial_exclusions_full_review.csv
+|
 |-- validation/
 |   |-- eligibility_validation_summary.csv
 |   |-- stable_signature_conflict_summary.csv
 |   `-- primary_configuration_summary.csv
+|
 `-- benchmark/
     |-- meta_audience_estimates_germany.csv
     |-- meta_audience_estimates_germany_raw.json
     `-- meta_audience_benchmark_full_with_formulas.xlsx
-
 
 ## Data collection
 
