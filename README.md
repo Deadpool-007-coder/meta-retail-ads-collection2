@@ -151,3 +151,73 @@ Code, documentation, validation outputs, and shareable research materials are pr
 Raw or derived Meta data are shared only where redistribution is permitted under applicable platform terms and data-governance requirements.
 
 API credentials, access tokens, `.env` files, and other secrets are excluded from the repository.
+
+## Software and reproducibility
+
+The data-processing pipeline was implemented in Python and the statistical analyses were conducted in R.
+
+### Python
+
+Recommended version:
+
+```text
+Python 3.10+
+```
+
+Main dependencies:
+
+```text
+requests
+numpy
+pandas
+```
+
+Principal processing scripts:
+
+```text
+scripts/recollection.py
+scripts/01_validate_recollection.py
+scripts/03_build_temporal_eligible.py
+scripts/04_apply_commercial_eligibility_filter.py
+scripts/07_apply_validated_eligibility.py
+scripts/08_build_and_audit_stable_signature.py
+scripts/10_collect_meta_audience_benchmarks.py
+scripts/11_build_analysis_ready_dataset.py
+scripts/12_build_primary_configuration_dataset.py
+```
+
+Meta audience benchmark collection used:
+
+```text
+Meta Marketing API v25.0
+```
+
+### R
+
+The dissertation analyses were implemented in:
+
+```text
+data/H1 analysis.R
+data/H2 analysis.R
+data/H3 Analysis.R
+data/H4 Analysis.R
+data/H5 Analysis.R
+data/H6 analysis.R
+data/H7 Analysis.R
+data/H7 specification check.R
+data/Benchmark H4-H5.R
+```
+
+Main R packages:
+
+```text
+clubSandwich
+marginaleffects
+openxlsx
+lmtest
+RcmdrMisc
+dplyr
+ggplot2
+```
+
+The final dissertation version should be identified using the final Git commit hash or release tag.
